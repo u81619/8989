@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* هنا CSS اللي رسلته */
+/* CSS */
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Kufi Arabic",Tahoma,Arial,sans-serif;background:#08090b;color:#eef0f3;line-height:1.7;overflow-x:hidden}
@@ -44,6 +44,10 @@ header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rg
 .chip:hover{transform:translateY(-2px);background:var(--but)}
 .primary{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#181818;font-weight:800}
 
+/* زر اللغة */
+#lang-btn{padding:8px 12px;border-radius:999px;background:var(--blue);color:#fff;border:none;transition:.3s}
+#lang-btn:hover{opacity:.8}
+
 .container{max-width:1220px;margin-inline:auto;padding:24px}
 
 /* الأقسام */
@@ -53,6 +57,9 @@ header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rg
 
 /* الفوتر */
 footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);text-align:center}
+
+/* إخفاء اللغة بشكل افتراضي */
+.lang-en{display:none}
 </style>
 </head>
 <body>
@@ -74,51 +81,58 @@ footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);text
       <a href="#about" class="chip">عن المدرسة</a>
       <a href="#dev" class="chip">المبرمج</a>
       <a href="#contact" class="chip primary">تواصل</a>
+      <button id="lang-btn">EN/AR</button>
     </nav>
   </div>
 </header>
 
- <!-- عن المدرسة -->
-    <div class="channel-links">
-        <h2 class="lang-ar">عن المدرسة</h2>
-        <h2 class="lang-en">About the School</h2>
-        <p class="lang-ar">
-            تأسست <strong>ثانوية متفوقين بسماية للبنين</strong> لتكون منارة تعليمية متميزة تُعنى برعاية الطلبة المتفوقين واحتضان قدراتهم الفكرية والعلمية. تقع المدرسة ضمن مشروع مدينة بسماية السكنية، وتُعد واحدة من المؤسسات التعليمية الحديثة التي تعتمد على رؤية تربوية قائمة على التميز والإبداع والابتكار.
-            <br><br>
-            تسعى المدرسة إلى توفير بيئة تعليمية محفزة وآمنة، تعتمد على مناهج علمية متطورة ومعلمين ذوي كفاءة عالية، بالإضافة إلى تقنيات تعليمية حديثة تواكب تطورات القرن الحادي والعشرين. تهدف المدرسة إلى إعداد طلاب يمتلكون مهارات التفكير النقدي، وروح المبادرة، والقدرة على العمل الجماعي، بما يواكب متطلبات سوق العمل المحلي والعالمي.
-            <br><br>
-            وتتميز المدرسة أيضًا ببنيتها التحتية الحديثة، من مختبرات علمية مجهزة، وقاعات حاسوب متطورة، ومكتبة غنية بالمصادر، فضلاً عن اهتمامها بالأنشطة اللاصفية التي تسهم في بناء شخصية متكاملة للطالب من النواحي الاجتماعية والثقافية والرياضية.
-            <br><br>
-            تحرص ثانوية متفوقين بسماية للبنين على أن تكون بيئة تعليمية نموذجية تركز على <strong>تنمية المواهب</strong> وتعزيز مهارات الطلبة الأكاديمية والاجتماعية. كما توفر برامج دعم خاصة للطلبة المتميزين لضمان استمرارية نجاحهم وتفوقهم في مختلف المراحل الدراسية.
-        </p>
-        <p class="lang-en">
-            <strong>Al-Mutafawiqin High School for Boys in Bismayah</strong> was established as a distinguished educational beacon dedicated to nurturing gifted students and fostering their intellectual and scientific potential. Located within the Bismayah Residential Project, the school is one of the modern institutions built on a vision of excellence, creativity, and innovation.
-            <br><br>
-            The school strives to offer a stimulating and safe learning environment, utilizing advanced academic curricula, highly qualified teachers, and cutting-edge educational technologies that align with 21st-century developments. Its mission is to develop students equipped with critical thinking, initiative, and teamwork skills to meet both local and global labor market demands.
-            <br><br>
-            The school is also known for its modern infrastructure, including well-equipped science labs, advanced computer rooms, a resource-rich library, and a focus on extracurricular activities that contribute to the well-rounded development of students in social, cultural, and athletic areas.
-            <br><br>
-            Al-Mutafawiqin High School for Boys in Bismayah is dedicated to creating an ideal educational environment that emphasizes <strong>talent development</strong> and strengthens students’ academic and social skills. The school also provides special support programs for outstanding students to ensure their continued success and excellence at all academic levels.
-        </p>
-    </div>
-
-</div>
-
-  </section>
-
-  <section id="dev" class="section glass">
-    <h2>المبرمج ومطور الموقع</h2>
-    <p>
-      تم تطوير هذا الموقع من قبل المبرمج <strong>حيدر أحمد جواد لطيف</strong>، وهو مهتم بتقنيات الويب والتصميم الإبداعي.
+<!-- عن المدرسة -->
+<section id="about" class="section glass">
+  <div class="channel-links">
+    <h2 class="lang-ar">عن المدرسة</h2>
+    <h2 class="lang-en">About the School</h2>
+    <p class="lang-ar">
+      تأسست <strong>ثانوية متفوقين بسماية للبنين</strong> لتكون منارة تعليمية متميزة تُعنى برعاية الطلبة المتفوقين واحتضان قدراتهم الفكرية والعلمية. تقع المدرسة ضمن مشروع مدينة بسماية السكنية، وتُعد واحدة من المؤسسات التعليمية الحديثة التي تعتمد على رؤية تربوية قائمة على التميز والإبداع والابتكار.
+      <br><br>
+      تسعى المدرسة إلى توفير بيئة تعليمية محفزة وآمنة، تعتمد على مناهج علمية متطورة ومعلمين ذوي كفاءة عالية، بالإضافة إلى تقنيات تعليمية حديثة تواكب تطورات القرن الحادي والعشرين. تهدف المدرسة إلى إعداد طلاب يمتلكون مهارات التفكير النقدي، وروح المبادرة، والقدرة على العمل الجماعي، بما يواكب متطلبات سوق العمل المحلي والعالمي.
+      <br><br>
+      وتتميز المدرسة أيضًا ببنيتها التحتية الحديثة، من مختبرات علمية مجهزة، وقاعات حاسوب متطورة، ومكتبة غنية بالمصادر، فضلاً عن اهتمامها بالأنشطة اللاصفية التي تسهم في بناء شخصية متكاملة للطالب من النواحي الاجتماعية والثقافية والرياضية.
+      <br><br>
+      تحرص ثانوية متفوقين بسماية للبنين على أن تكون بيئة تعليمية نموذجية تركز على <strong>تنمية المواهب</strong> وتعزيز مهارات الطلبة الأكاديمية والاجتماعية. كما توفر برامج دعم خاصة للطلبة المتميزين لضمان استمرارية نجاحهم وتفوقهم في مختلف المراحل الدراسية.
     </p>
-  </section>
+    <p class="lang-en">
+      <strong>Al-Mutafawiqin High School for Boys in Bismayah</strong> was established as a distinguished educational beacon dedicated to nurturing gifted students and fostering their intellectual and scientific potential. Located within the Bismayah Residential Project, the school is one of the modern institutions built on a vision of excellence, creativity, and innovation.
+      <br><br>
+      The school strives to offer a stimulating and safe learning environment, utilizing advanced academic curricula, highly qualified teachers, and cutting-edge educational technologies that align with 21st-century developments. Its mission is to develop students equipped with critical thinking, initiative, and teamwork skills to meet both local and global labor market demands.
+      <br><br>
+      The school is also known for its modern infrastructure, including well-equipped science labs, advanced computer rooms, a resource-rich library, and a focus on extracurricular activities that contribute to the well-rounded development of students in social, cultural, and athletic areas.
+      <br><br>
+      Al-Mutafawiqin High School for Boys in Bismayah is dedicated to creating an ideal educational environment that emphasizes <strong>talent development</strong> and strengthens students’ academic and social skills. The school also provides special support programs for outstanding students to ensure their continued success and excellence at all academic levels.
+    </p>
+  </div>
+</section>
 
-</div>
+<!-- المبرمج -->
+<section id="dev" class="section glass">
+  <h2>المبرمج ومطور الموقع</h2>
+  <p>
+    تم تطوير هذا الموقع من قبل المبرمج <strong>حيدر أحمد جواد لطيف</strong>، وهو مهتم بتقنيات الويب والتصميم الإبداعي.
+  </p>
+</section>
 
 <!-- فوتر -->
 <footer>
   <p>&copy; 2025 جميع الحقوق محفوظة - ثانوية متفوقين بسماية للبنين</p>
 </footer>
+
+<script>
+// زر تبديل اللغة
+const langBtn = document.getElementById('lang-btn');
+langBtn.addEventListener('click', () => {
+  document.querySelectorAll('.lang-ar').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'block');
+  document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
+});
+</script>
 
 </body>
 </html>
