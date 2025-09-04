@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ثانوية متفوقين بسماية للبنين</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ====== Reset & Base ====== */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Kufi Arabic",Tahoma,Arial,sans-serif;background:#08090b;color:#eef0f3;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer}
+
+/* ====== Theme ====== */
+:root{
+  --bg:#08090b; --bg-2:#0d0f13; --panel:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.10); --text:#f3f4f6; --muted:#b9bdc7;
+  --gold:#f5d06f; --gold-2:#e3b84a; --radius-2xl:20px;
+  --shadow:0 12px 40px rgba(0,0,0,.35); --but:linear-gradient(180deg, #ffc94b, #e4ba3c);
+  --menu:#ffffff;
+}
+
+/* ====== Background ====== */
+.bg-anim{position:fixed;inset:-20%;z-index:-1;filter:blur(60px);opacity:.45;pointer-events:none}
+.blob{position:absolute;width:50vmax;height:50vmax;border-radius:50%;mix-blend-mode:screen;animation:float 22s ease-in-out infinite}
+.b1{background:radial-gradient(circle at 30% 30%, #f5d06f 0%, transparent 60%);left:-10%;top:-10%;animation-delay:0s}
+.b2{background:radial-gradient(circle at 70% 40%, #8cc8ff 0%, transparent 60%);right:-15%;top:10%;animation-delay:4s}
+.b3{background:radial-gradient(circle at 40% 70%, #b387ff 0%, transparent 65%);left:10%;bottom:-15%;animation-delay:8s}
+@keyframes float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(4%, -2%, 0) scale(1.05)}}
+
+/* ====== Navbar ====== */
+header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(8,9,11,.85),rgba(8,9,11,.45) 70%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 8px}
+.brand h1{font-size:18px;margin:0;color:var(--text)}
+
+.nav-links{display:flex;gap:10px;flex-wrap:wrap}
+.chip{padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:var(--panel);transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.chip:hover{transform:translateY(-2px);background:var(--but)}
+.primary{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#181818;font-weight:800}
+
+.container{max-width:1220px;margin-inline:auto;padding:24px}
+
+/* ====== Sections ====== */
+.section{padding:44px 0}
+.section h2{font-size:28px;margin:0 0 18px}
+.glass{background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:var(--radius-2xl);box-shadow:var(--shadow);padding:20px;margin-bottom:24px}
+
+/* ====== Footer ====== */
+footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);text-align:center}
+
+/* ====== Language button ====== */
+.lang-toggle {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  padding: 10px 20px;
+  background: var(--menu);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+.lang-toggle:hover {
+  background: var(--but);
+  transform: translateY(-2px);
+}
+.lang-en {display:none;}
+</style>
+</head>
+<body>
+
+<!-- خلفية -->
+<div class="bg-anim">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<!-- زر اللغة -->
+<button class="lang-toggle" onclick="toggleLanguage()">English</button>
+
+<!-- نافبار -->
+<header class="nav">
+  <div class="container nav-wrap">
+    <div class="brand">
+      <h1 class="lang-ar">ثانوية متفوقين بسماية للبنين</h1>
+      <h1 class="lang-en">Al-Mutafawiqin High School for Boys in Bismayah</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="#about" class="chip lang-ar">عن المدرسة</a>
+      <a href="#about" class="chip lang-en">About</a>
+      <a href="#dev" class="chip lang-ar">المبرمج</a>
+      <a href="#dev" class="chip lang-en">Developer</a>
+      <a href="#contact" class="chip primary lang-ar">تواصل</a>
+      <a href="#contact" class="chip primary lang-en">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- محتوى -->
+<div class="container">
+
+  <section id="about" class="section glass">
+    <h2 class="lang-ar">عن المدرسة</h2>
+    <h2 class="lang-en">About the School</h2>
+    <p class="lang-ar">
+      تأسست <strong>ثانوية متفوقين بسماية للبنين</strong> لتكون منارة تعليمية متميزة تُعنى برعاية الطلبة المتفوقين واحتضان قدراتهم الفكرية والعلمية.
+    </p>
+    <p class="lang-en">
+      <strong>Al-Mutafawiqin High School for Boys in Bismayah</strong> was established as an educational beacon for nurturing gifted students.
+    </p>
+  </section>
+
+  <section id="dev" class="section glass">
+    <h2 class="lang-ar">المبرمج ومطور الموقع</h2>
+    <h2 class="lang-en">Developer & Website Programmer</h2>
+    <p class="lang-ar">
+      تم تطوير هذا الموقع من قبل المبرمج <strong>حيدر أحمد جواد لطيف</strong>.
+    </p>
+    <p class="lang-en">
+      This website was developed by <strong>Haider Ahmed Jawad Latif</strong>.
+    </p>
+  </section>
+
+</div>
+
+<!-- فوتر -->
+<footer>
+  <p class="lang-ar">&copy; 2025 جميع الحقوق محفوظة.</p>
+  <p class="lang-en">&copy; 2025 All rights reserved.</p>
+</footer>
+
+<script>
+function toggleLanguage() {
+    const html = document.documentElement;
+    const langToggleBtn = document.querySelector('.lang-toggle');
+    const elementsAr = document.querySelectorAll('.lang-ar');
+    const elementsEn = document.querySelectorAll('.lang-en');
+
+    if (html.lang === 'ar') {
+        html.lang = 'en';
+        html.dir = 'ltr';
+        langToggleBtn.textContent = 'العربية';
+        elementsAr.forEach(el => el.style.display = 'none');
+        elementsEn.forEach(el => el.style.display = 'block');
+    } else {
+        html.lang = 'ar';
+        html.dir = 'rtl';
+        langToggleBtn.textContent = 'English';
+        elementsEn.forEach(el => el.style.display = 'none');
+        elementsAr.forEach(el => el.style.display = 'block');
+    }
+}
+</script>
+</body>
+</html>
