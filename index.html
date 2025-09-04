@@ -19,9 +19,7 @@ button{cursor:pointer}
   --bg:#08090b; --bg-2:#0d0f13; --panel:rgba(255,255,255,.06); --panel-2:rgba(255,255,255,.08);
   --border:rgba(255,255,255,.10); --text:#f3f4f6; --muted:#b9bdc7; --gold:#f5d06f; --gold-2:#e3b84a;
   --ok:#79ffa7; --warn:#ffd36b; --err:#ff7b7b; --radius-2xl:20px; --shadow:0 12px 40px rgba(0,0,0,.35);
-  --blue:#5087ff;
-  --but:linear-gradient(180deg, #ffc94b, #e4ba3c);
-  --menu:#ffffff;
+  --but:linear-gradient(180deg, #ffc94b, #e4ba3c); /* اللون الذهبي */
 }
 
 /* خلفية متحركة */
@@ -40,11 +38,18 @@ header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rg
 
 .nav-links{display:flex;gap:10px;flex-wrap:wrap}
 .chip{padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:var(--panel);transition:.25s;display:inline-flex;align-items:center;gap:8px}
-.chip:hover{transform:translateY(-2px);background:var(--but)}
+.chip:hover{transform:translateY(-2px);background:var(--but)} /* تأثير الزر العادي عند المرور */
 
-/* زر اللغة */
-#lang-btn{padding:10px 14px;border-radius:999px;background:var(--blue);color:#fff;border:none;transition:.3s;font-weight:700}
-#lang-btn:hover{opacity:.85}
+/* زر اللغة ذهبي دائم */
+#lang-btn{
+  padding:10px 14px;
+  border-radius:999px;
+  background: var(--but);
+  color:#181818;
+  border:none;
+  transition:none;
+  font-weight:700;
+}
 
 .container{max-width:1220px;margin-inline:auto;padding:24px}
 
