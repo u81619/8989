@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* CSS */
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Kufi Arabic",Tahoma,Arial,sans-serif;background:#08090b;color:#eef0f3;line-height:1.7;overflow-x:hidden}
@@ -42,11 +41,10 @@ header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rg
 .nav-links{display:flex;gap:10px;flex-wrap:wrap}
 .chip{padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:var(--panel);transition:.25s;display:inline-flex;align-items:center;gap:8px}
 .chip:hover{transform:translateY(-2px);background:var(--but)}
-.primary{background:linear-gradient(180deg,var(--gold),var(--gold-2));color:#181818;font-weight:800}
 
 /* زر اللغة */
-#lang-btn{padding:8px 12px;border-radius:999px;background:var(--blue);color:#fff;border:none;transition:.3s}
-#lang-btn:hover{opacity:.8}
+#lang-btn{padding:10px 14px;border-radius:999px;background:var(--blue);color:#fff;border:none;transition:.3s;font-weight:700}
+#lang-btn:hover{opacity:.85}
 
 .container{max-width:1220px;margin-inline:auto;padding:24px}
 
@@ -58,7 +56,7 @@ header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rg
 /* الفوتر */
 footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);text-align:center}
 
-/* إخفاء اللغة بشكل افتراضي */
+/* إخفاء اللغة الإنجليزية بشكل افتراضي */
 .lang-en{display:none}
 </style>
 </head>
@@ -80,8 +78,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);text
     <nav class="nav-links">
       <a href="#about" class="chip">عن المدرسة</a>
       <a href="#dev" class="chip">المبرمج</a>
-      <a href="#contact" class="chip primary">تواصل</a>
-      <button id="lang-btn">EN/AR</button>
+      <button id="lang-btn" class="chip">EN/AR</button>
     </nav>
   </div>
 </header>
@@ -126,11 +123,16 @@ footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);text
 </footer>
 
 <script>
-// زر تبديل اللغة
+// تبديل اللغة مع تغيير الاتجاه
 const langBtn = document.getElementById('lang-btn');
+let isArabic = true;
+
 langBtn.addEventListener('click', () => {
-  document.querySelectorAll('.lang-ar').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'block');
-  document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
+  isArabic = !isArabic;
+  document.querySelectorAll('.lang-ar').forEach(el => el.style.display = isArabic ? 'block' : 'none');
+  document.querySelectorAll('.lang-en').forEach(el => el.style.display = isArabic ? 'none' : 'block');
+  document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+  document.documentElement.lang = isArabic ? 'ar' : 'en';
 });
 </script>
 
